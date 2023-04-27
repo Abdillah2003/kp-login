@@ -1,0 +1,152 @@
+.main {
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    display: flex; 
+    padding-top: 40px;
+    padding-bottom: 90px;
+    background-color: rgb(30 58 138);
+  }
+
+  .sub-main {
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+    height: 600px;
+    width: 560px;
+    box-shadow: 16px 16px rgba(0, 0, 0, 0.247);
+    padding-top: 40px;
+    border-radius: 8px; 
+    background-color: rgba(209, 213, 219, 0.507);
+  }
+
+  .imgs {
+      padding-top: 4px;
+      justify-content: center;
+      display: flex;
+    }
+  .container-image {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+  }
+
+  input{
+    appearance: none;
+    width: 400px;
+    height: 64px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 16px;
+  }
+
+  .email{
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      padding: 14px 0 0 25px;
+  }
+
+  .name{
+      padding-left: 70px;
+      font-size: 20px;
+  }
+
+ .login-button{
+      width: 40%;
+      height: 50px;
+      border-radius: 24px;
+      background-color: rgb(55, 126, 192);
+      box-shadow: 6px 6px rgba(0, 0, 0, 0.295);
+      color: white;
+      border: none;
+      margin: 25px auto;
+  }
+
+  button {
+    font-size: 24px;
+    padding-top: 4px;
+  }
+
+  .create-button {
+      width: 75%;
+      height: 50px;
+      border-radius: 8px;
+      background-color: rgb(55, 126, 192);
+      box-shadow: 6px 6px rgba(0, 0, 0, 0.295);
+      color: white;
+      border: none;
+      margin: 25px auto;
+  }
+
+  .link{
+      font-size: 25px;
+      font-weight: 400;
+  }
+   a{
+       color: blue;
+   }
+
+   .lines p{
+     position: relative;
+     display: inline-block;
+   }
+
+   .lines p::before{
+    content: " ";
+		position: absolute;
+		border-bottom: 1px solid black;
+		width: 179px;
+		left: -189px;
+		top: 50%;
+   }
+
+   .lines p::after {
+    content: " ";
+		position: absolute;
+		border-bottom: 1px solid black;
+		width: 179px;
+		right: -189px;	
+		top: 50%;
+   }
+
+   @media screen and (max-width: 1500px) {
+    main {
+      height: 100vh;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    .sub-main {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      height: 600px;
+      width: 560px;
+
+    }
+  }
+   
+  @media screen and (max-width: 768px) {
+    main {
+      height: 100vh;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    .sub-main {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+      height: 600px;
+      width: 560px;
+      margin: auto;
+    }
+ }
