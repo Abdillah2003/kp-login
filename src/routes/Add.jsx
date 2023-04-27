@@ -9,38 +9,43 @@ const Add = () => {
   const [detail_umkm, setDetailUmkm] = useState("");
   const [alamat_umkm, setAlamatUmkm] = useState("");
   const [motto_umkm, setMottoUmkm] = useState("");
+  const [token, setToken] = useState(localStorage.getItem(""));
   const navigate = useNavigate();
+  const [status, setStatus] = useState('')
   const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = {
-      nama_umkm: `${nama_umkm}`,
-      id_user: `${id_user}`,
-      profil_url: `${profil_url}`,
-      gambar_umkm: `${gambar_umkm}`,
-      detail_umkm: `${detail_umkm}`,
-      alamat_umkm: `${alamat_umkm}`,
-      motto_umkm: `${motto_umkm}`,
-      created_at: new Date(),
-      updated_at: new Date(),
+
+    const data = { 
+      nama_umkm: nama_umkm,
+      id_user: id_user,
+      profil_url: profil_url,
+      gambar_umkm: gambar_umkm,
+      detail_umkm: detail_umkm,
+      alamat_umkm: alamat_umkm,
+      motto_umkm: motto_umkm,
     };
-    fetch("http://34.101.113.12/api/umkm", {
-      method: "POST",
+    
+    const response = await fetch("http://34.101.113.12/api/umkm", {
+      method: 'POST', 
       headers: {
-        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json' 
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data) 
     })
-      .then((response) => response.json())
-      .then((data) => {
-        navigate("/home");
-      })
-      .catch((error) => {
-        setError(
-            alert("Data tidak berhasil ditambahkan")
-        );
-      });
+    
+    if(response.ok) {
+      setStatus(
+        alert('Data added successfully')
+      );
+      navigate("/home")
+    }else {
+      setStatus(
+        alert('Failed to add data')
+      );
+    }
   };
 
     return(
@@ -48,7 +53,7 @@ const Add = () => {
             <div className="container">
             {error && <div className="error-msg">{error}</div>}
             <h1>FORM UPLOAD DATA UMKM</h1>
-            <form className="add-form"  onSubmit={Add}>
+            <form className="add-form"  onSubmit={handleSubmit}>
             <label>
                 <input
                 type="text" id="nama_umkm" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Nama UMKM"
@@ -98,7 +103,8 @@ const Add = () => {
                 onChange={(e) => setMottoUmkm(e.target.value)}
                 />
             </label>
-            <input className="submit-btn" type="submit" value="Submit" data-testid="submit" />
+            <input className="submit-btn" type="submit" value="Submit" data-testid="submit" class="bg-blue-700 rounded-lg mt-5 h-12 w-24 left-20"/>
+            <input className="cancle-btn" type="Cancel" value="Cancel" data-testid="Cancel" class="bg-red-700 rounded-lg mt-5 h-12 w-24 left-20 text-center" />
             </form>
         </div>
         </>

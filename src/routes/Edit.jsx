@@ -103,6 +103,7 @@ const EditUmkm = () => {
                 />
             </label>
             <input className="submit-btn" type="submit" value="Submit" data-testid="submit" />
+            <input className="cancle-btn" type="Cancel" value="Cancel" data-testid="Cancel" class="bg-red-700" />
             </form>
         </div>
         </>

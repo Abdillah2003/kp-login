@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.png'
 import './login.css'
+import { Card } from 'antd';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -26,11 +27,12 @@ function Login() {
 
     if (response.ok) {
       const { token } = await response.json();
+      <Card token={token}></Card>
       localStorage.setItem('token', token);
       setLoginStatus(
         alert("Login Succesfull")
       );
-      navigate.push('/add');
+      navigate('/add');
     }else {
       setLoginStatus(
        alert('Invalid email or password')
@@ -38,8 +40,11 @@ function Login() {
     }
   };
 
-   // {loginStatus && <p>{loginStatus}</p>}
-   return (
+  const handleCreateAccount = () => {
+    navigate('/');
+  }
+
+  return (
     <div className="main">
       <div className="sub-main">
         <div>
@@ -71,14 +76,14 @@ function Login() {
               </div>
               
               <div className="create-button">
-                <button>Creat Account</button>
+                <button onClick={handleCreateAccount}>Create Account</button>
               </div>
             </form>
           </div>
         </div>  
       </div>
     </div>
-    );
+  );
 }
 
 export default Login;

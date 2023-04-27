@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Route, useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.png'
-import { Navigate } from 'react-router-dom';
+import Login from './Login';
+import {Routes, Router } from 'react-router-dom';
 
 function Register() {
+  const navigate = useNavigate(); // deklarasi hook useNavigate
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,15 +36,16 @@ function Register() {
       setRegistrationStatus(
         alert('User registered successfully!')
       )
+      navigate("/login")
     } else {
       setRegistrationStatus(
         alert("failed to Registered")
       );
     }
   };
-    // const handleLogin = () => {
-    //   Navigate('/login');
-    // };
+  const handleLogin = () => {
+    navigate('/login')// menggunakan fungsi navigate untuk pindah ke halaman Login
+  };
   return(
 
     <div class="bg-blue-900 text-gray-100 px-12 py-12">
@@ -56,9 +60,9 @@ function Register() {
                 <div class="object-center">
                 <img src={Logo} alt="logo" className="logo"/>
                     <h2 class= "pt-20 text-xl lg:text-2xl font-bold leading-tight text-center">UMKM Juara, UMKM Goes to Digital Marketing</h2>
-                    {/* <div className="text-black mt-8 text-center text-xl">
+                    <div className="text-black mt-8 text-center text-xl">
                       You Have Acccount? <button className="text-blue-900" onClick={handleLogin}>Log-in</button>
-                    </div> */}
+                    </div>
                 </div>
               </div>
               <div class="mt-8 text-center">
