@@ -47,18 +47,16 @@ function Register() {
     navigate('/login')// menggunakan fungsi navigate untuk pindah ke halaman Login
   };
   return(
-
-    <div class="bg-blue-900 text-gray-100 px-12 py-12">
-      {registrationStatus && <p>{registrationStatus}</p>}
+    <div class="bg-blue-900 text-gray-100 px-10 py-10">
+      {/* {registrationStatus && <p>{registrationStatus}</p>} */}
           <div class="text-center w-full">
-          
           </div>
           <div
-            class="max-w-screen-xl mt-24 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg box shadow-2xl shadow-transparent">
+            class="max-w-screen-xl mt-4 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-16 py-8 mx-auto bg-gray-100 text-gray-900 rounded-lg box shadow-2xl shadow-transparent">
             <div class="flex flex-col justify-between">
               <div>
                 <div class="object-center">
-                <img src={Logo} alt="logo" className="logo"/>
+                <img src={Logo} alt="logo" class="h-60 w-72 object-right-top" className="logo"/>
                     <h2 class= "pt-20 text-xl lg:text-2xl font-bold leading-tight text-center">UMKM Juara, UMKM Goes to Digital Marketing</h2>
                     <div className="text-black mt-8 text-center text-xl">
                       You Have Acccount? <button className="text-blue-900" onClick={handleLogin}>Log-in</button>
@@ -86,7 +84,7 @@ function Register() {
                   <input type="text" value={alamat} onChange={(e) => setAlamat(e.target.value)} class=" bg-transparent border-none w-96 text-gray-700 mr-3 py-2 px-2 focus:outline-none "  placeholder="Adress" aria-label="Adress" />
                 </div>
                 <div class=" items-center border-b border-gray-400 py-2">
-                  <input type="text" value={gambar_profil} onChange={(e) => setProfil(e.target.value)} class=" bg-transparent border-none w-96 text-gray-700 mr-3 py-2 px-2 focus:outline-none "  placeholder="Url Profil" aria-label="Profil" />
+                  <input type="text" value={gambar_profil} onChange={(e) => setProfil(e.target.value)} class=" bg-transparent border-none w-96 text-gray-700 mr-3 py-2 px-2 focus:outline-none "  placeholder="Url Profil" aria-label="Url Profil" />
                 </div>
               <div class="mt-8">
                 <button

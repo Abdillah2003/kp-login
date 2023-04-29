@@ -26,9 +26,9 @@ function Login() {
     });
 
     if (response.ok) {
-      const { token } = await response.json();
-      <Card token={token}></Card>
-      localStorage.setItem('token', token);
+      const { access_token } = await response.json();
+      
+      localStorage.setItem('token', access_token);
       setLoginStatus(
         alert("Login Succesfull")
       );
