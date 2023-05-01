@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 
-const EditUmkm = () => {
+const Edit = () => {
     const [nama_umkm, setNamaUmkm] = useState('')
     const [profil_url, setProfilUrl] = useState('')
     const [gambar_umkm, setGambarUmkm] = useState('')
@@ -11,7 +11,17 @@ const EditUmkm = () => {
     // const [useNavigate] = useNavigate();
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
-    const {id_user} = useParams()
+    const {id} = useParams()
+
+    const [access_token, setToken] =  useState([]);
+
+
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+      setToken(token);
+      // console.log(`token : ${token}`)
+    }, [access_token]);
+    // console.log("aces token " + access_token)
 
     const EditUmkm = (e) => {
         e.preventDevault();
@@ -25,7 +35,7 @@ const EditUmkm = () => {
             updated_at: new Date()
         }
         console.log(JSON.stringify(data))
-        fetch(`http://34.101.113.12/api/umkm${id_user}`, {
+        fetch(`http://34.101.113.12/api/umkm${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json", 
@@ -41,7 +51,7 @@ const EditUmkm = () => {
     };
     useEffect(() => {
         setLoading(true);
-        fetch(`http://34.101.113.12/api/umkm${id_user}`)
+        fetch(`http://34.101.113.12/api/umkm${id}`)
         .then(hasil => hasil.json())
         .then(hasilAkhir => {
           setNamaUmkm(hasilAkhir.nama_umkm)
@@ -52,7 +62,7 @@ const EditUmkm = () => {
           setMottoUmkm(hasilAkhir.motto_umkm)
         })
         setLoading(false)
-      }, [id_user]);
+      }, [id]);
 
     return(
         <>
@@ -102,7 +112,7 @@ const EditUmkm = () => {
                 onChange={(e) => setMottoUmkm(e.target.value)}
                 />
             </label>
-            <input className="submit-btn" type="submit" value="Submit" data-testid="submit" />
+            <input className="submit-btn" type="submit" value="Submit" data-testid="submit" class="bg-blue-700"/>
             <input className="cancle-btn" type="Cancel" value="Cancel" data-testid="Cancel" class="bg-red-700" />
             </form>
         </div>
@@ -110,4 +120,4 @@ const EditUmkm = () => {
   );
 }
 
-export default EditUmkm
+export default Edit

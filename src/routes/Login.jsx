@@ -32,7 +32,7 @@ function Login() {
       setLoginStatus(
         alert("Login Succesfull")
       );
-      navigate('/add');
+      navigate('/list');
     }else {
       setLoginStatus(
        alert('Invalid email or password')
@@ -48,14 +48,13 @@ function Login() {
     <div className="main">
       <div className="sub-main">
         <div>
-          <div className="imgs">
-            <div className="container-image">
+          <div className="img">
+            <div className="container-img">
               <img src={Logo} alt="logo" className="logo"/>
             </div>
           </div>
            
           <div>
-            <h1>Login Page</h1>
             <form onSubmit={handleLogin}>
               <input class="border-t border-b mt-8 border-gray-900" type="text" placeholder="Username" aria-label="name"
                 value={email}

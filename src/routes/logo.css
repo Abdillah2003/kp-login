@@ -1,0 +1,12 @@
+  .imgs {
+      padding-top: 2px;
+      justify-content: center;
+      display: flex;
+    }
+  .container-image {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    width: 350px;
+  }

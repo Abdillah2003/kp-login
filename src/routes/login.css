@@ -20,12 +20,12 @@
     background-color: rgba(209, 213, 219, 0.507);
   }
 
-  .imgs {
-      padding-top: 4px;
+  .img {
+      padding-top: 2px;
       justify-content: center;
       display: flex;
     }
-  .container-image {
+  .container-img {
     align-items: center;
     display: flex;
     justify-content: center;
