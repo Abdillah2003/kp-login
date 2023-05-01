@@ -27,6 +27,7 @@ const List = () => {
       .then(response =>{
         response.json()
         console.log(response.data)
+        console.log(response)
       } )
       .then(data => {
         setData(data);
