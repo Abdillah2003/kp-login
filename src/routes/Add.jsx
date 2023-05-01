@@ -41,7 +41,6 @@ const Add = () => {
     }
   };
 
-
   useEffect(() => {
     const access_token = localStorage.getItem('token');
     setToken(access_token);
@@ -73,24 +72,29 @@ const Add = () => {
       });
      console.log(JSON.stringify(data))
       const responseData = await response.json();
-  
+      
+      console.log(response.body.data)
+      
       if (response.ok) {
-        localStorage.setItem('token', responseData.access_token);
+        localStorage.setItem('token', access_token);
         alert('Data added successfully');
+        localStorage.setItem('token',access_token);
+        navigate("/list")
         
       } else {
         setError(
           alert(responseData.message || 'Failed to add data')
         );
+      
       }
     } catch (error) {
       console.log(error);
       setError(
         alert('Error adding data')
       );
+      
     }
-
-    
+   
   };
 
 

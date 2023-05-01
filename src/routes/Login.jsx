@@ -32,7 +32,7 @@ function Login() {
       setLoginStatus(
         alert("Login Succesfull")
       );
-      navigate('/list');
+      navigate('/add');
     }else {
       setLoginStatus(
        alert('Invalid email or password')
